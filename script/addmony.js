@@ -11,12 +11,11 @@ document.getElementById("add-mony").addEventListener("click", function (event) {
   const account = document.getElementById("account-number").value;
   const mainBalance = getInnerTextById("main-balance");
 
-  const selectedBank = document.getElementById('all-bank').value;
-  console.log(selectedBank)
+  const selectedBank = document.getElementById("all-bank").value;
+  console.log(selectedBank);
 
-
-  if(amount <0){
-    alert('need positive number')
+  if (amount < 0) {
+    alert("need positive number");
     return;
   }
 
@@ -28,14 +27,26 @@ document.getElementById("add-mony").addEventListener("click", function (event) {
 
       const container = document.getElementById("transaction-container");
 
-      const p = document.createElement("p");
-      p.innerText = `
-      added mony ${amount} from ${account} account
+      const div = document.createElement("div");
+      div.classList.add("bg-gray-400");
+
+      div.innerHTML = `
+      <h1>Added Money: ${selectedBank}</h1>
+      <h3>${amount} Tk</h3>
+      <p>account number: ${account}</p>
 
       `;
 
-      container.appendChild(p)
-      
+      container.appendChild(div);
+
+      // const p = document.createElement("p");
+      // p.innerText = `
+      // added mony ${amount} from ${account} account
+
+      // `;
+
+      // container.appendChild(p)
+
     } else {
       console.log("Pin thik nai");
     }
